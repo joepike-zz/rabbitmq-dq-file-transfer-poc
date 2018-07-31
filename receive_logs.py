@@ -22,6 +22,6 @@ def callback(properties, ch, method, body):
     print(" [x] %r" % body)
 
 channel.basic_consume(callback,
-                      routing_key='',
+                      queue=queue_name,
                       no_ack=True
                       )
