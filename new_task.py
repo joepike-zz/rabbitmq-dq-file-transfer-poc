@@ -15,7 +15,7 @@ channel = connection.channel()
 
 # make sure that the recipient queue exists. message will be delivered to this
 # queue
-channel.queue_declare(queue='hello')
+channel.queue_declare(queue='hello', durable=True)
 
 # messages will not be published directly to a queue, they need to go through
 # an exchange. the following uses a default exchange. the default exchange allows

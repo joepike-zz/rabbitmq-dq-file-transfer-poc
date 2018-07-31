@@ -10,7 +10,7 @@ channel = connection.channel()
 
 # we don't know if the queue has been created already ,so run following command which is
 # idempotent
-channel.queue_declare(queue='hello')
+channel.queue_declare(queue='hello', durable=True)
 
 # this callback has been modfified from recieve.py to replicate a time-consuming process represented by
 # the sleep function for every '.' in the message sent
