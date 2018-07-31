@@ -21,6 +21,9 @@ def callback(ch, method, properties, body):
     print(" [x] Done"
     ch.basic_ack(delivery_tag =  method.delivery_tag))
 
+# this line will attempt to send a message to a consumer only if it is not already busy
+channel.basic_qos(prefetch_count = 1)
+
 # whenever a message is published to the queue, the callback function will be called. this
 # particular callback function should receive messages from the 'hello' queue. this is the 'consumer'.
 # modified from no_ack=True to the default false so that an acknowledgement is sent from the worker
